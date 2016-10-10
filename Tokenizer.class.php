@@ -28,25 +28,19 @@ class Tokenizer
     public function replace($string)
     {
         if($this->loaded) {
-
             $find = array();
             $repl = array();
-
             foreach ($this->tokens as $k => $v) {
-                if(null !== $v) {
-                    $find[] = $k;
-                    $repl[] = $v;
-                }
+                null !== $v or $v = '';
+                $find[] = $k;
+                $repl[] = $v;
             }
-
             if (count($find) > 0) {
                 $string = str_replace($find, $repl, $string);
             }
             unset($find);
             unset($repl);
-
         }
         return $string;
     }
-
 }
