@@ -13,8 +13,9 @@ can use to pass some value to a third party (link replacement, for example).
     $string = "I have a #token#, its name is %alt_token%. It lives on {another_alt_token} street.";
     $string = $token->replace($string);
 
-NOTE: The first parameter passed to add() is a variable, passed by reference. This method supports an unlimited 
-number of additional parameters (strings), which are wrapped in token markers (#, %, {}).
+NOTE: The first parameter passed to add() is the variable whose value will appear in the token's location. 
+This method supports an unlimited number of additional parameters (strings), which are wrapped in token 
+markers (#, %, {}).
     
 ## Details
 
