@@ -20,9 +20,10 @@ number of additional parameters (strings), which are wrapped in token markers (#
 
 The class grabs all variables by reference and assigns values to the tokens by reference, so that changes made to
 variable values should always be reflected at the time of token replacement. It is not necessary to wrap the add()
-statements in if(isset()) blocks, as values will be assigned as NULL if the variable hasn't yet been assigned. (If
-this is still true at the time you call ->replace(), tokens with unset variables will be replaced by empty strings
-to prevent passing along your tokens.
+statements in if(isset()) blocks, as values will be assigned as NULL if the variable hasn't yet been assigned. 
 
 The token will reflect the value of the variable even if the variable is created or modified later in the file.
+If the variable in question is not set by the time you reach the ->replace() call, Tokenizer will replace the
+token with an empty string. 
+
 This class makes no changes to the variable itself or its value.
