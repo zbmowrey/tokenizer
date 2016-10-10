@@ -7,9 +7,14 @@ can use to pass some value to a third party (link replacement, for example).
 ## Example:
 
     $token = new \zbmowrey\Tokenizer();
-    $token->add($variable,'token','alt_token','another_alt_token'...);
+    $token->add($variable,'token');
+    $token->add($other,'alt_token');
+    $token->add($more,'another_alt_token);
     $string = "I have a #token#, its name is %alt_token%. It lives on {another_alt_token} street.";
     $string = $token->replace($string);
+
+NOTE: The first set() parameter is a variable, passed by reference. This method supports an unlimited number
+of additional parameters (strings), which are wrapped in token markers (#, %, {}).
     
 ## Details
 
